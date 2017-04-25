@@ -1,6 +1,6 @@
 ABOUT
 -----
-`vmux_copy` is a vim plugin that enables yanking and pasting text between vim buffers across tmux panes
+`vmux_copy` is a vim plugin that enables yanking and pasting text between vim buffers across panes/windows of terminal multiplexers
 
 INSTALLATION
 ------------
@@ -12,8 +12,15 @@ INSTALLATION
 
 USAGE
 -----
-* add maps for the `WriteIntoVmuxBuf()` and `ReadFromVmuxBuf()` functions
+* calling `WriteIntoVmuxBuf()` will make your most recently yanked text available across multiplexer panes
+* calling `ReadFromVmuxBuf()` will make your most recently vmux-yanked text available in your current multiplexed pane in the `"` vim register, which can be put with `p`
+* add maps for the `WriteIntoVmuxBuf()` and `ReadFromVmuxBuf()` functions. Example:
+    * `let mapleader = ","
     * `map <silent> <leader>y :call WriteIntoVmuxBuf()<cr>`
     * `map <silent> <leader>p :call ReadFromVmuxBuf()<cr>`
-* calling `WriteIntoVmuxBuf()` will make your most recently yanked text available across tmux panes
-* calling `ReadFromVmuxBuf()` will make your most recently vmux-yanked text available in your current tmux pane in the `"` vim register, which can be put with `p`
+    * `yy` + `,y` in one pane, `,p` + `p` in another
+
+REQUIREMENTS
+------------
+* `vim` compiled with either `+python` or `+python3`
+    * check with `vim --version | grep python`
