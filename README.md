@@ -15,10 +15,11 @@ USAGE
 * calling `WriteIntoVmuxBuf()` will make your most recently yanked text available across multiplexer panes
 * calling `ReadFromVmuxBuf()` will make your most recently vmux-yanked text available in your current multiplexed pane in the `"` vim register, which can be put with `p`
 * add maps for the `WriteIntoVmuxBuf()` and `ReadFromVmuxBuf()` functions. Example:
-    * `let mapleader = ","`
-    * `map <silent> <leader>y :call WriteIntoVmuxBuf()<cr>`
-    * `map <silent> <leader>p :call ReadFromVmuxBuf()<cr>`
     * `yy` + `,y` in one pane, `,p` + `p` in another
+    * ```let mapleader = ","
+         map <silent> <leader>y :call WriteIntoVmuxBuf()<cr>
+         map <silent> <leader>p :call ReadFromVmuxBuf()<cr>
+      ```
 
 REQUIREMENTS
 ------------
