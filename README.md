@@ -1,6 +1,6 @@
 ABOUT
 -----
-`vmux_copy` is a vim plugin that enables yanking and pasting text between vim buffers across panes/windows of terminal multiplexers
+`vmux_copy` is a vim plugin that enables yanking and pasting text between vim buffers across panes/windows of [tmux](https://tmux.github.io/), [byobu](byobu.co), [screen](https://www.gnu.org/software/screen/), and other terminal multiplexers
 
 INSTALLATION
 ------------
