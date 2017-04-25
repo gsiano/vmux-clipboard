@@ -1,12 +1,12 @@
 ABOUT
 -----
-`vmux_copy` is a vim plugin that enables yanking and pasting text from and into vim buffers across tmux panes
+`vmux_copy` is a vim plugin that enables yanking and pasting text between vim buffers across tmux panes
 
 INSTALLATION
 ------------
 * Using [pathogen](https://github.com/tpope/vim-pathogen):
     * clone the `vmux_copy` repo into `~/.vim/bundle`
-    * make sure to include `execute pathogen#indefct()` in your `.vimrc`
+    * make sure to include `execute pathogen#infect()` in your `.vimrc`
 * Manually:
     * put `vmux_copy.vim` and `vmux_copy.py` in `~/.vim/ftdetect`
 
