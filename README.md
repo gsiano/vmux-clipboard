@@ -8,7 +8,7 @@ INSTALLATION
     * clone the `vmux_copy` repo into `~/.vim/bundle`
     * make sure to include `execute pathogen#infect()` in your `.vimrc`
 * Manually:
-    * put `vmux_copy.vim` and `vmux_copy.py` in `~/.vim/ftdetect`
+    * put `plugin/vmux_copy.vim` into `~/.vim/plugin/` and `py/vmux_copy.py` into `~/.vim/py/`
 
 USAGE
 -----

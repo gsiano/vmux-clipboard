@@ -4,17 +4,21 @@ elseif has('python3')
     let g:vmuxcopy_python_version=3
 endif
 
-let g:vmuxcopy_path = fnamemodify(resolve(expand('<sfile>:p')), ':h') . '/vmux_copy.py'
+let g:vmuxcopy_path = "/" . join(split(fnamemodify(resolve(expand('<sfile>:p')), ':h'), "/")[:-2], "/") . '/py/vmux_copy.py'
 
 function! WriteIntoVmuxBuf()
+    if g:vmuxcopy_python_version == 2
 python <<EOF
 import sys
 sys.argv = ['write']
 EOF
-    if g:vmuxcopy_python_version == 2
         execute 'pyfile ' . g:vmuxcopy_path
     elseif g:vmuxcopy_python_version == 3
-        execute 'pyfile3 ' . g:vmuxcopy_path
+python3 <<EOF
+import sys
+sys.argv = ['write']
+EOF
+        execute 'py3file ' . g:vmuxcopy_path
     else
         echom "vmux_copy error: vim not compiled with python"
         return
@@ -23,14 +27,18 @@ EOF
 endfunction
 
 function! ReadFromVmuxBuf()
+    if g:vmuxcopy_python_version == 2
 python <<EOF
 import sys
 sys.argv = ['read']
 EOF
-    if g:vmuxcopy_python_version == 2
         execute 'pyfile ' . g:vmuxcopy_path
     elseif g:vmuxcopy_python_version == 3
-        execute 'pyfile3 ' . g:vmuxcopy_path
+python3 <<EOF
+import sys
+sys.argv = ['read']
+EOF
+        execute 'py3file ' . g:vmuxcopy_path
     else
         echom "vmux_copy error: vim not compiled with python"
         return
